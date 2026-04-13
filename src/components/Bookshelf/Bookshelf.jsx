@@ -15,6 +15,7 @@ const Bookshelf = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setBooks([...books, newBook]);
+        console.log('handleSubmit fired:', newBook);
         setNewBook({ title: '', author: '' });
     };
 
@@ -22,7 +23,27 @@ const Bookshelf = () => {
         <div className="bookshelfDiv">
             <div className="formDiv">
                 <h3>Add a Book</h3>
-                {/* Form will go here */}
+                {/* onSubmit on form tag to catch button clicks & Enter key */}
+                <form onSubmit={handleSubmit}>
+                    {/* htmlFor + id are same to focus input on click  */}
+                    <label htmlFor="titleInput">Title:</label>
+                    <input
+                        type="text"
+                        id="titleInput"
+                        name="title"
+                        value={newBook.title}
+                        onChange={handleInputChange}
+                    />
+                    <label htmlFor="authorInput">Author:</label>
+                    <input
+                        type="text"
+                        id="authorInput"
+                        name="author"
+                        value={newBook.author}
+                        onChange={handleInputChange}
+                    />
+                    <button type="submit">Add Book</button>
+                </form>
             </div>
             <div className="bookCardsDiv">{/* Book cards will display here */}</div>
         </div>
