@@ -1,6 +1,13 @@
 import { useState } from 'react';
 
 const Bookshelf = () => {
+    const [books, setBooks] = useState([
+        { title: 'Fourth Wing', author: 'Rebecca Yarros' },
+        { title: 'The Lion, the Witch and the Wardrobe', author: 'C.S. Lewis' },
+    ]);
+
+    const [newBook, setNewBook] = useState({ title: '', author: '' });
+
     return (
         <div className="bookshelfDiv">
             <div className="formDiv">
