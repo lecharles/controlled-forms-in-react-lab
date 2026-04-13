@@ -45,7 +45,15 @@ const Bookshelf = () => {
                     <button type="submit">Add Book</button>
                 </form>
             </div>
-            <div className="bookCardsDiv">{/* Book cards will display here */}</div>
+            {/* Verified console.log key/index mechanics/increments using {} and calling return on div */}
+            <div className="bookCardsDiv">
+                {books.map((book, index) => (
+                    <div className="bookCard" key={index}>
+                        <h4>{book.title}</h4>
+                        <p>by {book.author}</p>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
